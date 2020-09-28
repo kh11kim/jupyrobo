@@ -5,6 +5,8 @@
 
 ### A* Search (maze)
 ![image](https://github.com/applesquiz/jupyrobo/blob/master/A*/out.gif)
-
 ### RRT
 <img src="https://github.com/applesquiz/jupyrobo/blob/master/RRT/out.gif" width="300" height="300"/>
+
+### RRT\*
+<img src="https://github.com/applesquiz/jupyrobo/blob/master/RRT/out_rrtstar.gif" width="300" height="300"/>
