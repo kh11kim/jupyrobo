@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from PIL import Image as PILImage
 import io
+from IPython.display import clear_output
 
 class AniMaker():
     def __init__(self):
@@ -14,7 +15,8 @@ class AniMaker():
             buffer.seek(0)
             im = PILImage.open(buffer)
             self.ims.append(im.copy())
-        
+        clear_output(wait=True)
+        print('image added: ', len(self.ims))
         return im
     
     def make_gif(self, filename):
