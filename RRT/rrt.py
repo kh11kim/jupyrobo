@@ -9,6 +9,8 @@ class Node():
     def __init__(self, position, parent=None):
         self.position = np.array(position)
         self.parent = parent
+        self.cost = 0 # for rrt*
+
     def __sub__(self, other):
         return LA.norm(self.position - other.position)
     
@@ -93,3 +95,53 @@ class RRT(RRTAlg):
             im = ax.plot(*pts.T, color='r')
             temp_node = temp_node.parent
         return im
+
+class RRTstarAlg(RRTAlg):
+
+    def find_neighbor_nodes(self, new_node, dist=1):
+        neighbor_list = []
+        for i,node in enumerate(self.tree):
+            if (new_node - node) < dist:
+                neighbor_list.append((i, node))
+        return neighbor_list
+
+class RRTstar(RRTstarAlg):
+    
+    def show(self):
+        self.plot_tree()
+        self.plot_obstacles()
+        self.start.show(color='r', label='start')
+        self.end.show(color='b', label='goal')
+        self.plot_final_path()
+        
+    def plot_tree(self):
+        ax = plt.gca()
+        for node in self.tree:
+            if node.parent:
+                pts = np.array([node.position, node.parent.position])
+                ax.plot(*pts.T, color='k')
+        return ax
+    
+    def plot_obstacles(self):
+        ax = plt.gca()
+        for obs in self.obstacles:
+            c = mpatches.Circle(obs[:2], obs[2], fc='k')
+            im = ax.add_artist(c)
+        return im
+    
+    def plot_final_path(self):
+        if not 'goal_node' in dir(self):
+            return False
+        
+        ax = plt.gca()
+        temp_node = self.goal_node
+        while temp_node.parent:
+            pts = np.array([temp_node.position, temp_node.parent.position])
+            im = ax.plot(*pts.T, color='r')
+            temp_node = temp_node.parent
+        return im
+    
+
+    
+
+        
