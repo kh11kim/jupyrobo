@@ -20,14 +20,14 @@ class Coloring():
             comment = self.GREENITALIC + m.group(2) +  self.END
         
         declare_type = re.compile(r'(class|def) (\w+)')
-        func_type = re.compile(r'(sum|zip|tuple|list|abs|zip)(\()')
-        for_type = re.compile(r'(for|while|if|elif|else|return)( |:)')
+        func_type = re.compile(r' (sum|zip|tuple|list|abs|zip|type)(\()')
+        for_type = re.compile(r' (for|while|if|elif|else|return)( |:)')
         and_type = re.compile(r'( )(in|is|and)( )')
         color_str = re.compile(r'(True|False|None)')
         etc = re.compile(r'(=|<|>|\+|\-|\*|\/)')
         
         pattern1 = self.GREEN + '\\1 ' + self.BLUE + '\\2' + self.END
-        pattern2 = self.GREEN + '\\1' + self.END + '\\2'
+        pattern2 = ' ' + self.GREEN + '\\1' + self.END + '\\2'
         pattern3 = self.GREEN + '\\1' + self.END
         pattern4 = self.VIOLET + '\\1' + self.END
         pattern5 = '\\1' + self.GREEN + '\\2' + self.END + '\\3'
