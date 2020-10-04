@@ -7,15 +7,13 @@ class AniMaker():
     def __init__(self):
         self.ims = []
     
-    def set_snapshot(self, cont=False, num=1):
+    def set_snapshot(self, num=1):
         for i in range(num):
             buffer = io.BytesIO()        
             plt.savefig(buffer, format='png')
             buffer.seek(0)
             im = PILImage.open(buffer)
             self.ims.append(im.copy())
-        if cont==False:
-            plt.cla()
         
         return im
     

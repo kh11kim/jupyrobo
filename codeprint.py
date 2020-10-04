@@ -21,7 +21,8 @@ class Coloring():
         
         declare_type = re.compile(r'(class|def) (\w+)')
         func_type = re.compile(r'(sum|zip|tuple|list|abs|zip)(\()')
-        for_type = re.compile(r'(for|while|if|elif|else|return|in)( |:)')
+        for_type = re.compile(r'(for|while|if|elif|else|return)( |:)')
+        and_type = re.compile(r'( )(in|is|and)( )')
         color_str = re.compile(r'(True|False|None)')
         etc = re.compile(r'(=|<|>|\+|\-|\*|\/)')
         
@@ -29,9 +30,10 @@ class Coloring():
         pattern2 = self.GREEN + '\\1' + self.END + '\\2'
         pattern3 = self.GREEN + '\\1' + self.END
         pattern4 = self.VIOLET + '\\1' + self.END
+        pattern5 = '\\1' + self.GREEN + '\\2' + self.END + '\\3'
 
         process = [(declare_type, pattern1), (func_type, pattern2), (for_type, pattern2),
-                   (color_str, pattern3), (etc, pattern4)]
+                   (color_str, pattern3), (etc, pattern4), (and_type, pattern5)]
         output = text
         for str_type, pattern in process:
             output = str_type.sub(pattern, output)
