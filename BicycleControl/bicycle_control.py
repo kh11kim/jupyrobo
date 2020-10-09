@@ -36,17 +36,17 @@ class Stanley():
     def ctrl(self, state, v):
         convert_angle = lambda x: x if (-np.pi < x)&(x <= np.pi) \
                                     else x - np.sign(x)*np.pi*2
-        x, y = state[:2]
+        
         theta = state[2]
-        a, b, c = self.line_coeff
-
         heading_err = convert_angle(self.theta_d - theta)
-        crosstrack_err = -(a*x+b*y+c)/np.sqrt(LA.norm([a, b]))
-        gamma = heading_err + np.arctan2(self.gain*crosstrack_err, v)
+        crosstrack_err = self.get_crosstrack_error(state)
+        gamma = heading_err + np.arctan2(self.gain * crosstrack_err, v)
         if abs(gamma) > self.gamma_max: gamma = np.sign(gamma)*self.gamma_max
         
         return gamma
 
-    def get_crosstrack_error(self):
-        pass
+    def get_crosstrack_error(self, state):
+        a, b, c = self.line_coeff
+        x, y = state[:2]
+        return -(a*x+b*y+c)/np.sqrt(LA.norm([a, b]))
 
