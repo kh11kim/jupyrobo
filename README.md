@@ -3,6 +3,8 @@
 * Algorithm details are in ipynb(Jupyter notebook, lab).
 * Simple, Visual, and Practical code snippet collection.
 
+# Planning
+
 ### A* Search (maze)
 ![image](https://github.com/Kanghyun-Kim/jupyrobo/blob/master/A*/out.gif)
 ### Rapidly-exploring Random Tree (RRT)
@@ -14,9 +16,21 @@
 ### Probablistic Roadmap (PRM)
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/PRM/out_prm.gif" width="300" height="300"/>
 
+# Control
+
 ### Bicycle Model
+* Front-Axle Model
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleModel/out_bicycle_front.gif" width="300" height="300"/>
+* Rear-Axle Model
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleModel/out_bicycle_rear.gif" width="300" height="300"/>
 
-### Bicycle Model Move-to-point Control using P controller
+### Bicycle Model Position Control
+* Move-to-point Control using P controller
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleModel/out_move_to_point.gif" width="300" height="300"/>
+
+### Bicycle Model Path Tracking
+* Pure Pursuit
+<img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleControl/out_pure_pursuit.gif" width="300" height="300"/>
+
+* Stanley
+<img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleControl/out_stanley.gif" width="300" height="300"/>
