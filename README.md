@@ -7,6 +7,9 @@
 
 ### A* Search (maze)
 ![image](https://github.com/Kanghyun-Kim/jupyrobo/blob/master/A*/out.gif)
+### D* Lite
+<img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/D*lite/out_dstarlite.gif" width="300" height="300"/>
+
 ### Rapidly-exploring Random Tree (RRT)
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/RRT/out_rrt.gif" width="300" height="300"/>
 
