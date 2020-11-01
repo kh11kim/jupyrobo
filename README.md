@@ -19,13 +19,16 @@
 ### Probablistic Roadmap (PRM)
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/PRM/out_prm.gif" width="300" height="300"/>
 
-# Control
+# Model & Control
 
 ### Bicycle Model
 * Front-Axle Model
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleModel/out_bicycle_front.gif" width="300" height="300"/>
 * Rear-Axle Model
 <img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/BicycleModel/out_bicycle_rear.gif" width="300" height="300"/>
+
+### Linear Kalman Filter
+<img src="https://github.com/Kanghyun-Kim/jupyrobo/blob/master/KF/out_linear_KF.gif" width="300" height="300"/>
 
 ### Bicycle Model Position Control
 * Move-to-point Control using P controller
